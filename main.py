@@ -1,13 +1,24 @@
-from flask import Flask, request, render_template, url_for, redirect
+from flask import Flask, request, render_template, url_for
 import logic
 
 
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
-    pass
+    return render_template('index.html')
+
+
+@app.route('/applicants-and-mentors')
+@app.route('/applicants')
+@app.route('/contacts')
+@app.route('/mentors-by-country')
+@app.route('/all-school')
+@app.route('/mentors')
+def select_table():
+    data = logic.dispatch(request.path)
+    return render_template('table.html', table=data)
 
 
 @app.errorhandler(404)
