@@ -1,18 +1,27 @@
 {% extends "base.html" %}
-{% block title %} - {% if question %} Edit {% else -%} Add new {% endif %} Record{% endblock %}
 {% block content %}
-<div>
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+            <header>
+                <h1>{{ table['title'] }}</h1>
+            </header>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                        {%- for label in table['header'] %}
+                            <th>{{ label }}</th>
+                        {%- endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%- for row in table['body'] %}
+                        <tr>
+                            {%- for data in row -%}
+                            {% set cell = table['data_label'][loop.index - 1] %}
+                            <td>{{ row[cell] }}</td>
+                            {%- endfor %}
+                        </tr>
+                        {%- endfor %}
+                    </tbody>
+                </table>
+            </div>
 {%- endblock content %}
