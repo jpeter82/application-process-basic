@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+            <div style="width:100%;">
+                <img src="static/images/background.png" alt="background" usemap="#Map" />
+            </div>
+            <map name="Map" id="Map">
+                <area href="/mentors" shape="poly" coords="863,1293,1380,1292,1387,1357,1411,1450,1463,1556,1525,1638,1158,2007,1046,1870,947,1688,887,1502" />
+                <area href="/all-school" shape="poly" coords="865,1248,1380,1248,1409,1098,1461,987,1526,900,1159,535,1039,683,946,858,884,1053" />
+                <area href="/mentors-by-country" shape="poly" coords="1190,504,1556,869,1739,761,1828,736,1906,727,1903,209,1734,225,1558,273,1427,332,1310,403" />
+                <area href="/contacts" shape="poly" coords="1946,208,1946,726,2087,750,2166,783,2295,871,2658,505,2540,405,2434,338,2303,277,2187,241,2081,220" />
+                <area href="/applicants" shape="poly" coords="2325,901,2690,537,2819,699,2898,845,2937,948,2970,1088,2984,1194,2986,1249,2468,1248" />
+                <area href="/applicants-and-mentors" shape="poly" coords="2468,1292,2458,1380,2439,1441,2389,1552,2324,1638,2690,2004,2830,1831,2900,1692,2947,1560,2974,1434,2987,1293" />
+            </map>
+            <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{%- endblock content %}
