@@ -2,6 +2,11 @@ import db
 
 
 def dispatch(path):
+    '''
+    Prepares data for all routes. Provides page title, table header and body.
+        @param    path   string   Path from route the user has selected
+        @return          dict     Contains page title, table header and body data
+    '''
     choice = {'/mentors': {'query': 1,
                            'title': 'Mentors and Schools',
                            'data_label': ('first_name', 'last_name', 'name', 'country'),
@@ -39,6 +44,11 @@ def dispatch(path):
 
 
 def select_solution(n):
+    '''
+    Makes a database query for the tables.
+        @param    n   int             Number of query to be executed. See dispatch for further info
+        @return       list of dicts   List of records as a dictionary
+    '''
     records = None
     if n in range(1, 7):
         with db.get_cursor() as cursor:
